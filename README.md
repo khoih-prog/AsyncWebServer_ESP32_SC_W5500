@@ -1634,13 +1634,21 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 
 ### Example [Async_AdvancedWebServer](examples/Async_AdvancedWebServer)
 
-https://github.com/khoih-prog/AsyncWebServer_ESP32_SC_W5500/blob/a1776c0de8a14ece510e8d1ec4a909faa1785800/examples/Async_AdvancedWebServer/Async_AdvancedWebServer.ino#L40-L256
+https://github.com/khoih-prog/AsyncWebServer_ESP32_SC_W5500/blob/9f1dfa5e651999480f758a764e727398b14cd612/examples/Async_AdvancedWebServer/Async_AdvancedWebServer.ino#L40-L270
 
 
 You can access the Async Advanced WebServer @ the server IP
 
 <p align="center">
     <img src="https://github.com/khoih-prog/AsyncWebServer_ESP32_SC_W5500/raw/main/pics/Async_AdvancedWebServer.png">
+</p>
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncWebServer_ESP32_SC_W5500/raw/main/pics/AsyncWebServer_SendChunked_ESP32_S2.png">
+</p>
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncWebServer_ESP32_SC_W5500/raw/main/pics/AsyncWebServer_SendChunked_ESP32_C3.png">
 </p>
 
 ---
