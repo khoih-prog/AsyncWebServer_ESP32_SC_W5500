@@ -15,6 +15,7 @@
 ## Table of contents
 
 * [Changelog](#changelog)
+  * [Releases v1.7.0](#releases-v170)
   * [Releases v1.6.3](#releases-v163)
 
 
@@ -22,6 +23,10 @@
 ---
 
 ## Changelog
+
+#### Releases v1.7.0
+
+1. Add support to `ESP32_S2` boards using `LwIP W5500 Ethernet`
 
 #### Releases v1.6.3
 

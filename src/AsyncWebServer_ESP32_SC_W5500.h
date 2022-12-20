@@ -22,11 +22,12 @@
   You should have received a copy of the GNU Lesser General Public License along with this library;
   if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-  Version: 1.6.3
+  Version: 1.7.0
 
   Version Modified By   Date      Comments
   ------- -----------  ---------- -----------
   1.6.3   K Hoang      15/12/2022 Initial porting for W5500 + ESP32_S3. Sync with AsyncWebServer_ESP32_W5500 v1.6.3
+  1.7.0   K Hoang      19/12/2022 Add support to ESP32_S2_W5500 (ESP32_S2 + LwIP W5500)
  *****************************************************************************************************************************/
 
 #ifndef _AsyncWebServer_ESP32_SC_W5500_H_
@@ -50,8 +51,6 @@
 #ifndef SHIELD_TYPE
   #define SHIELD_TYPE         "ESP32_S2_W5500"
 #endif
-
-#error ESP32_S2 not supported yet. Please use EthernetWebServer
 
 #elif ( ARDUINO_ESP32C3_DEV )
 #if (_ETHERNET_WEBSERVER_LOGLEVEL_ > 3)
@@ -100,21 +99,21 @@
     #warning Using code for ESP32 core v2.0.0+ in AsyncWebServer_ESP32_SC_W5500.h
   #endif
 
-  #define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION      "AsyncWebServer_ESP32_SC_W5500 v1.6.3 for core v2.0.0+"
+  #define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION      "AsyncWebServer_ESP32_SC_W5500 v1.7.0 for core v2.0.0+"
 #else
 
   #if (_ASYNC_WEBSERVER_LOGLEVEL_ > 3 )
     #warning Using code for ESP32 core v1.0.6- in AsyncWebServer_ESP32_SC_W5500.h
   #endif
 
-  #define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION      "AsyncWebServer_ESP32_SC_W5500 v1.6.3 for core v1.0.6-"
+  #define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION      "AsyncWebServer_ESP32_SC_W5500 v1.7.0 for core v1.0.6-"
 #endif
 
 #define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION_MAJOR     1
-#define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION_MINOR     6
-#define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION_PATCH     3
+#define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION_MINOR     7
+#define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION_PATCH     0
 
-#define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION_INT       1006003
+#define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION_INT       1007000
 
 /////////////////////////////////////////////////
 
@@ -142,6 +141,8 @@
 #include "w5500/esp32_sc_w5500.h"
 
 #include <hal/spi_types.h>
+
+//////////////////////////////////////////////////////////////
 
 #if USING_ESP32_S3
 
@@ -224,23 +225,23 @@
   #endif
 
   #if !defined(INT_GPIO)
-    #define INT_GPIO            4
+    #define INT_GPIO            10
   #endif
 
   #if !defined(MISO_GPIO)
-    #define MISO_GPIO           5
+    #define MISO_GPIO           7
   #endif
 
   #if !defined(MOSI_GPIO)
-    #define MOSI_GPIO           6
+    #define MOSI_GPIO           5
   #endif
 
-  #if !defined(SCK_GPIO)
+  #if !defined(SCK_GPIO)        6
     #define SCK_GPIO
   #endif
 
   #if !defined(CS_GPIO)
-    #define CS_GPIO             7
+    #define CS_GPIO             4
   #endif
 
 #endif
