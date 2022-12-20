@@ -15,7 +15,6 @@
 
 ## Table of contents
 
-* [Table of contents](#table-of-contents)
 * [Important Note](#Important-Note)
 * [Why do we need this AsyncWebServer_ESP32_SC_W5500 library](#why-do-we-need-this-AsyncWebServer_ESP32_SC_W5500-library)
   * [Features](#features)
@@ -77,7 +76,7 @@
   * [Methods for controlling websocket connections](#methods-for-controlling-websocket-connections)
   * [Adding Default Headers](#adding-default-headers)
   * [Path variable](#path-variable)
-* [How to connect W5500 to ESP32_S2/S3](#How-to-connect-W5500-to-ESP32_S2S3)
+* [How to connect W5500 to ESP32_S2/S3/C3](#How-to-connect-W5500-to-ESP32_S2S3C3)
 * [Examples](#examples)
   * [ 1. Async_AdvancedWebServer](examples/Async_AdvancedWebServer)
   * [ 2. Async_AdvancedWebServer_MemoryIssues_SendArduinoString](examples/Async_AdvancedWebServer_MemoryIssues_SendArduinoString)
@@ -104,6 +103,7 @@
   * [5. Async_WebSocketsServer on ESP32S3_DEV with ESP32_S3_W5500](#5-Async_WebSocketsServer-on-ESP32S3_DEV-with-ESP32_S3_W5500)
   * [6. Async_HTTPBasicAuth on ESP32S3_DEV with ESP32_S3_W5500](#6-Async_HTTPBasicAuth-on-ESP32S3_DEV-with-ESP32_S3_W5500)
   * [7. Async_AdvancedWebServer_SendChunked on ESP32S2_DEV with ESP32_S2_W5500](#7-Async_AdvancedWebServer_SendChunked-on-ESP32S2_DEV-with-ESP32_S2_W5500)
+  * [8. Async_AdvancedWebServer_SendChunked on ESP32C3_DEV with ESP32_C3_W5500](#8-Async_AdvancedWebServer_SendChunked-on-ESP32C3_DEV-with-ESP32_C3_W5500)
 * [Debug](#debug)
 * [Troubleshooting](#troubleshooting)
 * [Issues](#issues)
@@ -222,8 +222,8 @@ to apply the better and faster **asynchronous** feature of the **powerful** [ESP
 
  1. **ESP32_S3 boards** using `LwIP W5500 Ethernet`
  2. **ESP32_S2 boards** using `LwIP W5500 Ethernet`
+ 3. **ESP32_C3 boards** using `LwIP W5500 Ethernet`
  
- Hopefully the `ESP32_C3-based` boards will be supported in the near future to use `LwIP W5500 or ENC28J60 Ethernet`
 
 ---
 
@@ -238,6 +238,13 @@ to apply the better and faster **asynchronous** feature of the **powerful** [ESP
 
 <p align="center">
     <img src="https://github.com/khoih-prog/AsyncWebServer_ESP32_SC_W5500/raw/main/pics/ESP32S3_DEV.png">
+</p> 
+
+
+#### ESP32C3_DEV
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncWebServer_ESP32_SC_W5500/raw/main/pics/ESP32_C3_DevKitC_02.png">
 </p> 
 
 ---
@@ -1512,7 +1519,7 @@ build_flags =
 ---
 ---
 
-### How to connect W5500 to ESP32_S2/S3
+### How to connect W5500 to ESP32_S2/S3/C3
 
 You can change the `INT` pin to another one. Default is `GPIO4`
 
@@ -1575,6 +1582,29 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 |GND|<--->|GND|
 |3.3V|<--->|3.3V|
 
+---
+
+
+#### ESP32C3_DEV
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncWebServer_ESP32_SC_W5500/raw/main/pics/ESP32_C3_DevKitC_02.png">
+</p> 
+
+
+|W5500|<--->|ESP32_C3|
+|:-:|:-:|:-:|
+|MOSI|<--->|GPIO6|
+|MISO|<--->|GPIO5|
+|SCK|<--->|GPIO4|
+|SS|<--->|GPIO7|
+|INT|<--->|GPIO10|
+|RST|<--->|RST|
+|GND|<--->|GND|
+|3.3V|<--->|3.3V|
+
+
+
 
 ---
 ---
@@ -1625,7 +1655,7 @@ Following are debug terminal output and screen shots when running example [Async
 
 ```cpp
 Start AsyncMultiWebServer_ESP32_W5500 on ESP32S3_DEV with ESP32_S3_W5500
-AsyncWebServer_ESP32_SC_W5500 v1.7.0 for core v2.0.0+
+AsyncWebServer_ESP32_SC_W5500 v1.8.0 for core v2.0.0+
 [AWS] Default SPI pinout:
 [AWS] SPI_HOST: 2
 [AWS] MOSI: 11
@@ -1675,7 +1705,7 @@ Following is the debug terminal and screen shot when running example [Async_Adva
 
 ```cpp
 Start Async_AdvancedWebServer_MemoryIssues_Send_CString on ESP32S3_DEV with ESP32_S3_W5500
-AsyncWebServer_ESP32_SC_W5500 v1.7.0 for core v2.0.0+
+AsyncWebServer_ESP32_SC_W5500 v1.8.0 for core v2.0.0+
 [AWS] Default SPI pinout:
 [AWS] SPI_HOST: 2
 [AWS] MOSI: 11
@@ -1709,7 +1739,7 @@ While using `Arduino String`, the HEAP usage is very large
 
 ```cpp
 Start Async_AdvancedWebServer_MemoryIssues_SendArduinoString on ESP32S3_DEV with ESP32_S3_W5500
-AsyncWebServer_ESP32_SC_W5500 v1.7.0 for core v2.0.0+
+AsyncWebServer_ESP32_SC_W5500 v1.8.0 for core v2.0.0+
 [AWS] Default SPI pinout:
 [AWS] SPI_HOST: 2
 [AWS] MOSI: 11
@@ -1751,7 +1781,7 @@ Following is debug terminal output when running example [Async_AdvancedWebServer
 
 ```cpp
 Start Async_AdvancedWebServer_SendChunked on ESP32S3_DEV with ESP32_S3_W5500
-AsyncWebServer_ESP32_SC_W5500 v1.7.0 for core v2.0.0+
+AsyncWebServer_ESP32_SC_W5500 v1.8.0 for core v2.0.0+
 [AWS] Default SPI pinout:
 [AWS] SPI_HOST: 2
 [AWS] MOSI: 11
@@ -1821,7 +1851,7 @@ Following is debug terminal output when running example [AsyncWebServer_SendChun
 
 ```cpp
 Start AsyncWebServer_SendChunked on ESP32S3_DEV with ESP32_S3_W5500
-AsyncWebServer_ESP32_SC_W5500 v1.7.0 for core v2.0.0+
+AsyncWebServer_ESP32_SC_W5500 v1.8.0 for core v2.0.0+
 [AWS] Default SPI pinout:
 [AWS] SPI_HOST: 2
 [AWS] MOSI: 11
@@ -1872,7 +1902,7 @@ Following is debug terminal output when running example [Async_WebSocketsServer]
 
 ```cpp
 Starting Async_WebSocketsServer on ESP32S3_DEV with ESP32_S3_W5500
-AsyncWebServer_ESP32_SC_W5500 v1.7.0 for core v2.0.0+
+AsyncWebServer_ESP32_SC_W5500 v1.8.0 for core v2.0.0+
 [AWS] Default SPI pinout:
 [AWS] SPI_HOST: 2
 [AWS] MOSI: 11
@@ -1902,7 +1932,7 @@ Following is debug terminal output when running example [Async_HTTPBasicAuth](ex
 
 ```cpp
 Start Async_HTTPBasicAuth on ESP32S3_DEV with ESP32_S3_W5500
-AsyncWebServer_ESP32_SC_W5500 v1.7.0 for core v2.0.0+
+AsyncWebServer_ESP32_SC_W5500 v1.8.0 for core v2.0.0+
 [AWS] Default SPI pinout:
 [AWS] SPI_HOST: 2
 [AWS] MOSI: 11
@@ -1922,7 +1952,6 @@ Open http://192.168.2.88/ in your browser to see it working
 Login using username = admin and password = esp32_w5500
 ```
 
-
 ---
 
 #### 7. Async_AdvancedWebServer_SendChunked on ESP32S2_DEV with ESP32_S2_W5500
@@ -1931,7 +1960,7 @@ Following is debug terminal output when running example [Async_AdvancedWebServer
 
 ```cpp
 Start Async_AdvancedWebServer_SendChunked on ESP32S2_DEV with ESP32_S2_W5500
-AsyncWebServer_ESP32_SC_W5500 v1.7.0 for core v2.0.0+
+AsyncWebServer_ESP32_SC_W5500 v1.8.0 for core v2.0.0+
 [AWS] Default SPI pinout:
 [AWS] SPI_HOST: 2
 [AWS] MOSI: 35
@@ -1995,6 +2024,79 @@ You can access the Async Advanced WebServers @ the server IP
     <img src="https://github.com/khoih-prog/AsyncWebServer_ESP32_SC_W5500/raw/main/pics/AsyncWebServer_SendChunked_ESP32_S2.png">
 </p>
 
+---
+
+#### 8. Async_AdvancedWebServer_SendChunked on ESP32C3_DEV with ESP32_C3_W5500
+
+Following is debug terminal output when running example [Async_AdvancedWebServer_SendChunked](examples/Async_AdvancedWebServer_SendChunked) on `ESP32C3_DEV with LwIP W5500`, using ESP32 core `v2.0.0+`, to demo how to use `beginChunkedResponse()` to send large `html` in chunks. The `built-in MAC address` is now used instead of user-defined one.
+
+```cpp
+Start Async_AdvancedWebServer_SendChunked on ESP32C3_DEV with ESP32_C3_W5500
+AsyncWebServer_ESP32_SC_W5500 v1.8.0 for core v2.0.0+
+[AWS] Default SPI pinout:
+[AWS] SPI_HOST: 1
+[AWS] MOSI: 6
+[AWS] MISO: 5
+[AWS] SCK: 4
+[AWS] CS: 7
+[AWS] INT: 10
+[AWS] SPI Clock (MHz): 25
+[AWS] =========================
+
+ETH Started
+ETH Connected
+ETH MAC: 7C:DF:A1:BC:BC:53, IPv4: 192.168.2.135
+FULL_DUPLEX, 100Mbps
+AsyncWebServer is @ IP : 192.168.2.135
+.[AWS] Total length to send in chunks = 31259
+[AWS] Bytes sent in chunk = 5620
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 2791
+[AWS] Bytes sent in chunk = 0
+[AWS] Total length to send in chunks = 31279
+[AWS] Bytes sent in chunk = 5620
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 1428
+[AWS] Bytes sent in chunk = 2811
+[AWS] Bytes sent in chunk = 0
+```
+
+You can access the Async Advanced WebServers @ the server IP
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncWebServer_ESP32_SC_W5500/raw/main/pics/AsyncWebServer_SendChunked_ESP32_C3.png">
+</p>
+
+
 
 ---
 ---
@@ -2049,6 +2151,7 @@ Submit issues to: [AsyncWebServer_ESP32_SC_W5500 issues](https://github.com/khoi
  9. Use `allman astyle` and add `utils`
 10. Add `Async_WebSocketsServer`, `Async_HttpBasicAuth` and `MQTT` examples
 11. Add support to **ESP32S2-based boards** using `LwIP W5500 Ethernet`
+12. Add support to **ESP32C3-based boards** using `LwIP W5500 Ethernet`
 
 
 ---

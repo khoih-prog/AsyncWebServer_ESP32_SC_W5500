@@ -1,9 +1,9 @@
 /****************************************************************************************************************************
   AsyncWebServer_ESP32_SC_W5500.h - Dead simple Ethernet AsyncWebServer.
 
-  For W5500 LwIP Ethernet in ESP32_SC_W5500 (ESP32_S2/3, ESP32_C3 + W5500)
+  For W5500 LwIP Ethernet in ESP32_SC_W5500 (ESP32_S2/S3/C3 + W5500)
 
-  AsyncWebServer_ESP32_SC_W5500 is a library for the LwIP Ethernet W5500 in ESP32_S2/3, ESP32_C3 to run AsyncWebServer
+  AsyncWebServer_ESP32_SC_W5500 is a library for the LwIP Ethernet W5500 in ESP32_S2/S3/C3 to run AsyncWebServer
 
   Based on and modified from ESPAsyncWebServer (https://github.com/me-no-dev/ESPAsyncWebServer)
   Built by Khoi Hoang https://github.com/khoih-prog/AsyncWebServer_ESP32_SC_W5500
@@ -22,12 +22,13 @@
   You should have received a copy of the GNU Lesser General Public License along with this library;
   if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-  Version: 1.7.0
+  Version: 1.8.0
 
   Version Modified By   Date      Comments
   ------- -----------  ---------- -----------
   1.6.3   K Hoang      15/12/2022 Initial porting for W5500 + ESP32_S3. Sync with AsyncWebServer_ESP32_W5500 v1.6.3
   1.7.0   K Hoang      19/12/2022 Add support to ESP32_S2_W5500 (ESP32_S2 + LwIP W5500)
+  1.8.0   K Hoang      20/12/2022 Add support to ESP32_C3_W5500 (ESP32_C3 + LwIP W5500)
  *****************************************************************************************************************************/
 
 #ifndef _AsyncWebServer_ESP32_SC_W5500_H_
@@ -69,8 +70,6 @@
   #define SHIELD_TYPE         "ESP32_C3_W5500"
 #endif
 
-#error ESP32_C3 not supported yet
-
 #elif ( defined(ARDUINO_ESP32S3_DEV) || defined(ARDUINO_ESP32_S3_BOX) || defined(ARDUINO_TINYS3) || \
         defined(ARDUINO_PROS3) || defined(ARDUINO_FEATHERS3) )
 #if (_ETHERNET_WEBSERVER_LOGLEVEL_ > 3)
@@ -99,21 +98,21 @@
     #warning Using code for ESP32 core v2.0.0+ in AsyncWebServer_ESP32_SC_W5500.h
   #endif
 
-  #define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION      "AsyncWebServer_ESP32_SC_W5500 v1.7.0 for core v2.0.0+"
+  #define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION      "AsyncWebServer_ESP32_SC_W5500 v1.8.0 for core v2.0.0+"
 #else
 
   #if (_ASYNC_WEBSERVER_LOGLEVEL_ > 3 )
     #warning Using code for ESP32 core v1.0.6- in AsyncWebServer_ESP32_SC_W5500.h
   #endif
 
-  #define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION      "AsyncWebServer_ESP32_SC_W5500 v1.7.0 for core v1.0.6-"
+  #define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION      "AsyncWebServer_ESP32_SC_W5500 v1.8.0 for core v1.0.6-"
 #endif
 
 #define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION_MAJOR     1
-#define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION_MINOR     7
+#define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION_MINOR     8
 #define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION_PATCH     0
 
-#define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION_INT       1007000
+#define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION_INT       1008000
 
 /////////////////////////////////////////////////
 
@@ -147,7 +146,7 @@
 #if USING_ESP32_S3
 
   #if !defined(ETH_SPI_HOST)
-    // Using SPI2 for ESP32_SC, but name is SPI3_HOST
+    // Using SPI2 for ESP32_S3, but name is SPI3_HOST
     #define ETH_SPI_HOST        SPI3_HOST
   #endif
 
@@ -181,7 +180,7 @@
 #elif USING_ESP32_S2
 
   #if !defined(ETH_SPI_HOST)
-    // Using SPI2 for ESP32_SC, but name is SPI3_HOST
+    // Using SPI2 for ESP32_S2, but name is SPI3_HOST
     #define ETH_SPI_HOST        SPI3_HOST
   #endif
 
@@ -215,8 +214,8 @@
 #elif USING_ESP32_C3
 
   #if !defined(ETH_SPI_HOST)
-    // Using SPI2 for ESP32_SC, but name is SPI3_HOST
-    #define ETH_SPI_HOST        SPI3_HOST
+    // Using SPI1 for ESP32_C3, but name is SPI2_HOST
+    #define ETH_SPI_HOST        SPI2_HOST
   #endif
 
   #if !defined(SPI_CLOCK_MHZ)
@@ -229,19 +228,19 @@
   #endif
 
   #if !defined(MISO_GPIO)
-    #define MISO_GPIO           7
+    #define MISO_GPIO           5
   #endif
 
   #if !defined(MOSI_GPIO)
-    #define MOSI_GPIO           5
+    #define MOSI_GPIO           6
   #endif
 
-  #if !defined(SCK_GPIO)        6
-    #define SCK_GPIO
+  #if !defined(SCK_GPIO)
+    #define SCK_GPIO            4
   #endif
 
   #if !defined(CS_GPIO)
-    #define CS_GPIO             4
+    #define CS_GPIO             7
   #endif
 
 #endif
