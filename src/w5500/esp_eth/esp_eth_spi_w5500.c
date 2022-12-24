@@ -1,13 +1,22 @@
 /****************************************************************************************************************************
   esp_eth_spi_w5500.c
 
-  Version: 1.8.0
+  For W5500 LwIP Ethernet in ESP32_SC_W5500 (ESP32_S2/3, ESP32_C3 + W5500)
+
+  AsyncWebServer_ESP32_SC_W5500 is a library for the LwIP Ethernet W5500 in ESP32_S2/3, ESP32_C3 to run AsyncWebServer
+
+  Based on and modified from ESPAsyncWebServer (https://github.com/me-no-dev/ESPAsyncWebServer)
+  Built by Khoi Hoang https://github.com/khoih-prog/AsyncWebServer_ESP32_SC_W5500
+  Licensed under GPLv3 license
+
+  Version: 1.8.1
 
   Version Modified By   Date      Comments
   ------- -----------  ---------- -----------
   1.6.3   K Hoang      15/12/2022 Initial porting for W5500 + ESP32_S3. Sync with AsyncWebServer_ESP32_W5500 v1.6.3
   1.7.0   K Hoang      19/12/2022 Add support to ESP32_S2_W5500 (ESP32_S2 + LwIP W5500)
   1.8.0   K Hoang      20/12/2022 Add support to ESP32_C3_W5500 (ESP32_C3 + LwIP W5500)
+  1.8.1   K Hoang      23/12/2022 Remove unused variable to avoid compiler warning and error
  *****************************************************************************************************************************/
 
 #include <stdio.h>
@@ -36,8 +45,8 @@ esp_eth_mac_t* w5500_new_mac( spi_device_handle_t *spi_handle, int INT_GPIO )
 
   eth_mac_config_t mac_config = ETH_MAC_DEFAULT_CONFIG();
 
-  eth_phy_config_t phy_config = ETH_PHY_DEFAULT_CONFIG();
-  phy_config.reset_gpio_num = -1;
+  //eth_phy_config_t phy_config = ETH_PHY_DEFAULT_CONFIG();
+  //phy_config.reset_gpio_num = -1;
 
   mac_config.smi_mdc_gpio_num  = -1; // w5500 doesn't have SMI interface
   mac_config.smi_mdio_gpio_num = -1;

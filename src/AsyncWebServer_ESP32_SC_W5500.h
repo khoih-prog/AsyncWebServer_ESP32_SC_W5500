@@ -22,13 +22,14 @@
   You should have received a copy of the GNU Lesser General Public License along with this library;
   if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-  Version: 1.8.0
+  Version: 1.8.1
 
   Version Modified By   Date      Comments
   ------- -----------  ---------- -----------
   1.6.3   K Hoang      15/12/2022 Initial porting for W5500 + ESP32_S3. Sync with AsyncWebServer_ESP32_W5500 v1.6.3
   1.7.0   K Hoang      19/12/2022 Add support to ESP32_S2_W5500 (ESP32_S2 + LwIP W5500)
   1.8.0   K Hoang      20/12/2022 Add support to ESP32_C3_W5500 (ESP32_C3 + LwIP W5500)
+  1.8.1   K Hoang      23/12/2022 Remove unused variable to avoid compiler warning and error
  *****************************************************************************************************************************/
 
 #ifndef _AsyncWebServer_ESP32_SC_W5500_H_
@@ -98,21 +99,21 @@
     #warning Using code for ESP32 core v2.0.0+ in AsyncWebServer_ESP32_SC_W5500.h
   #endif
 
-  #define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION      "AsyncWebServer_ESP32_SC_W5500 v1.8.0 for core v2.0.0+"
+  #define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION      "AsyncWebServer_ESP32_SC_W5500 v1.8.1 for core v2.0.0+"
 #else
 
   #if (_ASYNC_WEBSERVER_LOGLEVEL_ > 3 )
     #warning Using code for ESP32 core v1.0.6- in AsyncWebServer_ESP32_SC_W5500.h
   #endif
 
-  #define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION      "AsyncWebServer_ESP32_SC_W5500 v1.8.0 for core v1.0.6-"
+  #define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION      "AsyncWebServer_ESP32_SC_W5500 v1.8.1 for core v1.0.6-"
 #endif
 
 #define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION_MAJOR     1
 #define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION_MINOR     8
-#define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION_PATCH     0
+#define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION_PATCH     1
 
-#define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION_INT       1008000
+#define ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION_INT       1008001
 
 /////////////////////////////////////////////////
 

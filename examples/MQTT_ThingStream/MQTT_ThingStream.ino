@@ -1,12 +1,12 @@
 /****************************************************************************************************************************
   MQTT_ThingStream.ino
 
-  For W5500 LwIP Ethernet in ESP32 (ESP32 + W5500)
+  For W5500 LwIP Ethernet in ESP32_SC_W5500 (ESP32_S2/3, ESP32_C3 + W5500)
 
-  AsyncWebServer_ESP32_W5500 is a library for the LwIP Ethernet W5500 in ESP32 to run AsyncWebServer
+  AsyncWebServer_ESP32_SC_W5500 is a library for the LwIP Ethernet W5500 in ESP32_S2/3, ESP32_C3 to run AsyncWebServer
 
   Based on and modified from ESPAsyncWebServer (https://github.com/me-no-dev/ESPAsyncWebServer)
-  Built by Khoi Hoang https://github.com/khoih-prog/AsyncWebServer_ESP32_W5500
+  Built by Khoi Hoang https://github.com/khoih-prog/AsyncWebServer_ESP32_SC_W5500
   Licensed under GPLv3 license
  *****************************************************************************************************************************/
 
@@ -158,7 +158,7 @@ void setup()
   Serial.print(ARDUINO_BOARD);
   Serial.print(" with ");
   Serial.println(SHIELD_TYPE);
-  Serial.println(ASYNC_WEBSERVER_ESP32_W5500_VERSION);
+  Serial.println(ASYNC_WEBSERVER_ESP32_SC_W5500_VERSION);
 
   AWS_LOGWARN(F("Default SPI pinout:"));
   AWS_LOGWARN1(F("SPI_HOST:"), ETH_SPI_HOST);

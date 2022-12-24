@@ -1,12 +1,12 @@
 /****************************************************************************************************************************
   defines.h
 
-  For RP2040W with CYW43439 WiFi
+  For W5500 LwIP Ethernet in ESP32_SC_W5500 (ESP32_S2/3, ESP32_C3 + W5500)
 
-  AsyncWebServer_RP2040W is a library for the RP2040W with CYW43439 WiFi
+  AsyncWebServer_ESP32_SC_W5500 is a library for the LwIP Ethernet W5500 in ESP32_S2/3, ESP32_C3 to run AsyncWebServer
 
   Based on and modified from ESPAsyncWebServer (https://github.com/me-no-dev/ESPAsyncWebServer)
-  Built by Khoi Hoang https://github.com/khoih-prog/AsyncWebServer_RP2040W
+  Built by Khoi Hoang https://github.com/khoih-prog/AsyncWebServer_ESP32_SC_W5500
   Licensed under GPLv3 license
  *****************************************************************************************************************************/
 
@@ -59,7 +59,7 @@ IPAddress myDNS(8, 8, 8, 8);
 
 //////////////////////////////////////////////////////////
 
-// For W5500 & ESP32-S3
+// For ESP32-S3
 // Optional values to override default settings
 // Don't change unless you know what you're doing
 //#define ETH_SPI_HOST        SPI3_HOST
@@ -72,6 +72,20 @@ IPAddress myDNS(8, 8, 8, 8);
 //#define MOSI_GPIO           11
 //#define SCK_GPIO            12
 //#define CS_GPIO             10
+
+// For ESP32_C3
+// Optional values to override default settings
+// Don't change unless you know what you're doing
+//#define ETH_SPI_HOST        SPI2_HOST
+//#define SPI_CLOCK_MHZ       25
+
+// Must connect INT to GPIOxx or not working
+//#define INT_GPIO            10
+
+//#define MISO_GPIO           5
+//#define MOSI_GPIO           6
+//#define SCK_GPIO            4
+//#define CS_GPIO             7
 
 //////////////////////////////////////////////////////////
 
